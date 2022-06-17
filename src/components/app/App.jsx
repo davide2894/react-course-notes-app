@@ -9,21 +9,16 @@ import { useEffect } from "react";
 
 function App() {
   /**
-   * Challenge:
-   * 1. Every time the `notes` array changes, save it 
-   *    in localStorage. You'll need to use JSON.stringify()
-   *    to turn the array into a string to save in localStorage.
-   * 2. When the app first loads, initialize the notes state
-   *    with the notes saved in localStorage. You'll need to
-   *    use JSON.parse() to turn the stringified array back
-   *    into a real JS array.
+   * Challenge: When the user edits a note, reposition
+   * it in the list of notes to the top of the list
    */
+
   
   const localStorageNotesAppKey = "appNotes";
   const [notes, setNotes] = useState(
     () => JSON.parse(localStorage.getItem(localStorageNotesAppKey)) || []
   );
-  
+
   const [currentNoteId, setCurrentNoteId] = useState(
       (notes[0] && notes[0].id) || ""
   );
@@ -44,11 +39,17 @@ function App() {
   }
   
   function updateNote(text) {
-      setNotes(oldNotes => oldNotes.map(oldNote => {
-          return oldNote.id === currentNoteId
-              ? { ...oldNote, body: text }
-              : oldNote
-      }))
+    setNotes(oldNotes => {
+      const newArr = [];
+      oldNotes.forEach((oldNote) => {
+        if(oldNote.id === currentNoteId){
+          newArr.unshift({ ...oldNote, body: text });
+        } else {
+          newArr.push(oldNote)
+        }
+      });
+      return newArr;
+    });
   }
   
   function findCurrentNote() {
