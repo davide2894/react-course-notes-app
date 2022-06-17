@@ -5,6 +5,7 @@ import Split from "react-split"
 import {useState} from "react";
 import {nanoid} from "nanoid"
 import { data } from "../../data/data";
+import { useEffect } from "react";
 
 function App() {
   /**
@@ -18,17 +19,26 @@ function App() {
    *    into a real JS array.
    */
   
-  const [notes, setNotes] = useState([])
+  const localStorageNotesAppKey = "appNotes";
+  const [notes, setNotes] = useState(
+    () => JSON.parse(localStorage.getItem(localStorageNotesAppKey)) || []
+  );
   const [currentNoteId, setCurrentNoteId] = useState(
       (notes[0] && notes[0].id) || ""
-  )
+  );
   
+  useEffect(() => {
+    localStorage.setItem(localStorageNotesAppKey, JSON.stringify(notes));
+  },[notes])
+
   function createNewNote() {
       const newNote = {
           id: nanoid(),
           body: "# Type your markdown note's title here"
-      }
-      setNotes(prevNotes => [newNote, ...prevNotes])
+      };
+      
+      setNotes(prevNotes => [...prevNotes, newNote]);
+      
       setCurrentNoteId(newNote.id)
   }
   
