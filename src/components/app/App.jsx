@@ -23,6 +23,7 @@ function App() {
   const [notes, setNotes] = useState(
     () => JSON.parse(localStorage.getItem(localStorageNotesAppKey)) || []
   );
+  
   const [currentNoteId, setCurrentNoteId] = useState(
       (notes[0] && notes[0].id) || ""
   );
