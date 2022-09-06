@@ -1,10 +1,8 @@
-import "./App.scss";
 import Sidebar from "../sidebar/Sidebar"
 import Editor from "../editor/Editor"
 import Split from "react-split"
 import {useState} from "react";
 import {nanoid} from "nanoid"
-import { data } from "../../data/data";
 import { useEffect } from "react";
 
 function App() {
