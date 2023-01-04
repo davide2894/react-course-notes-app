@@ -11,7 +11,6 @@ function App() {
    * it in the list of notes to the top of the list
    */
 
-  
   const localStorageNotesAppKey = "appNotes";
   const [notes, setNotes] = useState(
     () => JSON.parse(localStorage.getItem(localStorageNotesAppKey)) || []
