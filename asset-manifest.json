@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-course-notes-app/static/css/main.3638af26.css",
+    "main.js": "/react-course-notes-app/static/js/main.e49fd082.js",
+    "static/js/787.d282cbf7.chunk.js": "/react-course-notes-app/static/js/787.d282cbf7.chunk.js",
+    "index.html": "/react-course-notes-app/index.html",
+    "main.3638af26.css.map": "/react-course-notes-app/static/css/main.3638af26.css.map",
+    "main.e49fd082.js.map": "/react-course-notes-app/static/js/main.e49fd082.js.map",
+    "787.d282cbf7.chunk.js.map": "/react-course-notes-app/static/js/787.d282cbf7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3638af26.css",
+    "static/js/main.e49fd082.js"
+  ]
+}
